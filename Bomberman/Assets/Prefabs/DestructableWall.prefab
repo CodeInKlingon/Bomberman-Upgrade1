@@ -20,9 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4166578735843172}
   - component: {fileID: 61105080462231640}
+  - component: {fileID: 114952781874162066}
   m_Layer: 8
   m_Name: DestructableWall
-  m_TagString: Untagged
+  m_TagString: Destructable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,6 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4330482114088674}
   - component: {fileID: 212930636760812278}
+  - component: {fileID: 95971201549591640}
   m_Layer: 8
   m_Name: New Sprite
   m_TagString: Untagged
@@ -50,7 +52,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1256161228064870}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5719228, y: 8.14736, z: 0}
+  m_LocalPosition: {x: -4, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4330482114088674}
@@ -95,6 +97,35 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &95971201549591640
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1949409143248658}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ce4168c9fe5cff542ad28a35e6967008, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114952781874162066
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1256161228064870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b50fedf7c385b64cadb25ec62da6129, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 95971201549591640}
 --- !u!212 &212930636760812278
 SpriteRenderer:
   m_ObjectHideFlags: 1

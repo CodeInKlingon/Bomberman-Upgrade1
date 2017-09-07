@@ -11,6 +11,11 @@ public class PlayerMove : MonoBehaviour {
     float moveSpeed = 2.5f;
     float lastBombTime;
     bool moving;
+
+    int rangePowerUp = 0;
+
+    public GameObject BombPrefab;
+
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
@@ -57,6 +62,24 @@ public class PlayerMove : MonoBehaviour {
         anim.SetFloat("LastYSpeed", lastInput.y);
 
         anim.SetBool("isMoving", moving);
-        
+
+        if (Input.GetKeyDown("space")) {
+            print("drop bomb");
+            if (Time.time - lastBombTime < 1)
+            {
+
+            }
+            else {
+                lastBombTime = Time.time;
+
+                Vector3 bombLocation = new Vector3();
+                bombLocation.x = Mathf.Round(transform.position.x);
+                bombLocation.y = Mathf.Round(transform.position.y);
+                //spawn bomb
+                GameObject bomb = Instantiate(BombPrefab, bombLocation, Quaternion.identity) as GameObject;
+                bomb.GetComponent<Bomb>().range += rangePowerUp;
+            }
+        }
+
     }
 }
