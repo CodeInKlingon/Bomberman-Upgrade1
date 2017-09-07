@@ -10,14 +10,17 @@ public class PlayerMove : MonoBehaviour
     Rigidbody2D rb;
     public Animator anim;
     float moveSpeed = 5f;
+
     List<GameObject> bombs = new List<GameObject>();
     bool moving;
 
     //power ups
-    int rangePowerUp = 0;
-    int maxBombs = 1;
-    int maxSpeed = 5;
-    bool remoteDetonate = false;
+    public int blastRange = 2;
+    public int bombCapacity = 1;
+    public float speed = 5;
+    public bool remoteDetonate = false;
+    public bool kick = false;
+    public bool punch = false;
 
     public GameObject BombPrefab;
 
@@ -77,7 +80,7 @@ public class PlayerMove : MonoBehaviour
             {
                 if (bombs[i] == null) { bombs.RemoveAt(i); }
             }
-            if (bombs.Count < maxBombs)
+            if (bombs.Count < bombCapacity)
             {
 
 
@@ -86,7 +89,7 @@ public class PlayerMove : MonoBehaviour
                 bombLocation.y = Mathf.Round(transform.position.y);
                 //spawn bomb
                 GameObject bomb = Instantiate(BombPrefab, bombLocation, Quaternion.identity) as GameObject;
-                bomb.GetComponent<Bomb>().range += rangePowerUp;
+                bomb.GetComponent<Bomb>().range = blastRange;
                 if (!remoteDetonate)
                     bomb.GetComponent<Bomb>().DisableRemote();
                 bombs.Add(bomb);
