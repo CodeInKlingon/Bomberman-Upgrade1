@@ -74,7 +74,7 @@ MonoBehaviour:
   range: 2
   blastCollision:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
   blast: {fileID: 1949897576921062, guid: 05a17993fb07dc2498c8d082e197a384, type: 2}
 --- !u!210 &210480432533868418
 SortingGroup:

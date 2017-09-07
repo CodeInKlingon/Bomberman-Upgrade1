@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61783458312436414}
   - component: {fileID: 114004441481653554}
   - component: {fileID: 95932293719649280}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Blast
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.65, y: 0.65}
   m_EdgeRadius: 0
 --- !u!95 &95932293719649280
 Animator:
@@ -96,14 +96,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17a4a1cb8b164374396bf63765b429c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tips:
-  - {fileID: 9100000, guid: 9f167553d2661db4b99fe1037971f25b, type: 2}
-  - {fileID: 9100000, guid: 547bd3d8fe2aee54caa81aaf1cd78944, type: 2}
-  - {fileID: 9100000, guid: d5e92077a3feee54db79d6a9b2bef708, type: 2}
-  - {fileID: 9100000, guid: 50f848e77116a9e4cb9588419661032c, type: 2}
-  columns:
-  - {fileID: 0}
-  - {fileID: 9100000, guid: ac5026676f55bd04a824051357c9bb12, type: 2}
 --- !u!212 &212073260936536516
 SpriteRenderer:
   m_ObjectHideFlags: 1

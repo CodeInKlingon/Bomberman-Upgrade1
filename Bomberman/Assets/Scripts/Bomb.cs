@@ -7,41 +7,55 @@ public class Bomb : MonoBehaviour {
     float bombTime;
     bool hasExploded = false;
     public int range = 3;
+    bool remote = true;
 
     public LayerMask blastCollision;
     public GameObject blast;
 
+    bool armed = false;
+
     float blasthalfWidth = 0.4f;
 
 	// Use this for initialization
-	void Start () {
+	public void DisableRemote () {
         bombTime = Time.time + 2;
+        armed = true;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
-        if (Time.time > bombTime && !hasExploded) {
+        
+        if (armed && Time.time > bombTime && !hasExploded) {
             hasExploded = true;
             Blast();
         }
 	}
 
-    void Blast () {
+    public void Blast () {
         Vector3[] directions = new Vector3[]{ Vector3.up, Vector3.left, Vector3.down, Vector3.right };
         foreach (Vector3 dir in directions) {
             for (int i = 0; i < range; i++)
             {
-                RaycastHit2D hit = Physics2D.CircleCast(transform.position + (dir * (i+1)), 0.5f,new Vector3(0,0,1));
+                RaycastHit2D hit = Physics2D.CircleCast(transform.position + (dir * (i+1)), 0.5f,new Vector3(0,0,1),3);
                 if (hit.collider != null)
                 {
                     if (hit.collider.tag == "Destructable") {
                         hit.collider.SendMessage("Destroy");
+                    }if (hit.collider.tag == "Player")
+                    {
+                        Vector3 pos = transform.position + (dir * (i + 1));
+                        GameObject blastInstance = Instantiate(blast, pos, Quaternion.identity) as GameObject;
+
+                        if (i == range - 1)
+                        {
+                            blastInstance.GetComponent<Blast>().setIsTip();
+                        }
+                        blastInstance.GetComponent<Blast>().setDir(dir);
                     }
-                    //hit a wall or powerup
-                    //Vector3 pos = transform.position + (dir * (i + 1));
-                    //Instantiate(blast, pos, Quaternion.identity);
-                    break;
+                    else
+                    {
+                        break;
+                    }
                     
                 }
                 else
@@ -49,13 +63,10 @@ public class Bomb : MonoBehaviour {
                     Vector3 pos = transform.position + (dir * (i+ 1));
                     GameObject blastInstance = Instantiate(blast, pos, Quaternion.identity) as GameObject;
 
-                    //print("range is:" + i + "/" + range);
                     if (i == range-1) {
-                        print("is tip");
                         blastInstance.GetComponent<Blast>().setIsTip();
                     }
                     blastInstance.GetComponent<Blast>().setDir(dir);
-                    //spawn fire
                 }
             }
             
