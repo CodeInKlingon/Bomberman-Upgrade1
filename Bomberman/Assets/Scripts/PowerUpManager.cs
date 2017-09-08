@@ -26,23 +26,23 @@ public class PowerUpManager : MonoBehaviour {
     }
 
     void UpdatePlayerEffects () {
-        int blastRange = 2;
-        int bombCapacity = 1;
-        float speed = 5;
-        bool remoteDetonate = false;
-        bool kick = false;
-        bool punch = false;
+        int blastRange = player.blastRange;
+        int bombCapacity = player.bombCapacity;
+        float speed = 5;   player.speed = speed;
+        bool remoteDetonate = player.remoteDetonate;
+        bool kick =  player.kick;
+        bool punch = player.punch;
 
         foreach (powerup power in CollectedPowerUps) {
             blastRange += power.rangeBoost;
             bombCapacity += power.carryBoost;
             speed += power.speedBoost;
-            if (!remoteDetonate)
-                remoteDetonate = power.remoteDetonate;
-            if (!kick)
-                kick = power.kick;
-            if (!punch)
-                kick = power.punch;
+            if (power.remoteDetonate)
+                remoteDetonate = true;
+            if (power.kick)
+                kick = true;
+            if (power.punch)
+                kick = true;
         }
 
 		player.blastRange = blastRange;

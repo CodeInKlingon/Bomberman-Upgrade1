@@ -9,6 +9,8 @@ public class Bomb : MonoBehaviour {
     public int range = 3;
     bool remote = true;
 
+    float startTime;
+
     public LayerMask blastCollision;
     public GameObject blast;
 
@@ -21,9 +23,14 @@ public class Bomb : MonoBehaviour {
         bombTime = Time.time + 2;
         armed = true;
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    private void Awake()
+    {
+        startTime = Time.time;
+    }
+
+    // Update is called once per frame
+    void Update () {
         
         if (armed && Time.time > bombTime && !hasExploded) {
             hasExploded = true;
@@ -75,5 +82,20 @@ public class Bomb : MonoBehaviour {
         GameObject blastInstance2 = Instantiate(blast, transform.position, Quaternion.identity) as GameObject;
         blastInstance2.GetComponent<Blast>().Center();
         Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (Time.time - startTime > .2f)
+        {
+            if (collision.gameObject.tag == "Player")
+            {
+                print("is player");
+                if (collision.GetComponent<PlayerMove>().kick)
+                {
+                    print("has kick");
+                }
+            }
+        }
     }
 }

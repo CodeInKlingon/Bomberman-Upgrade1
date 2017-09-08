@@ -16,10 +16,8 @@ public class item : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other)
     {
         print(other.tag);
-        if (other.tag == "Player")
+        if (other.tag == "Player" && other.GetComponent<PowerUpManager>() !=null)
         {
-            // eliminate that player
-            print("got you");
             other.GetComponent<PowerUpManager>().AddPowerUp(effect);
             Destroy(gameObject);
         }
@@ -28,7 +26,7 @@ public class item : MonoBehaviour {
     public void Destroy()
     {
         GetComponent<Animator>().Play("itemDestruction");
-        Destroy(gameObject, 2f);
+        Destroy(gameObject, .6f);
     }
     // Update is called once per frame
     void Update () {

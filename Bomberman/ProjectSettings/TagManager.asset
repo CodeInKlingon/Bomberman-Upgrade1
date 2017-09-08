@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - Destructable
+  - Bomb
   layers:
   - Default
   - TransparentFX

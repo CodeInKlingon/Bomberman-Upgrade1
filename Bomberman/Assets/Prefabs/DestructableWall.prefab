@@ -126,6 +126,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 95971201549591640}
+  powerups:
+  - {fileID: 1951297831917608, guid: d290ed8478224154db05dcc46b7c5fa2, type: 2}
+  - {fileID: 1951297831917608, guid: 9c1281b5b3dc7144db82fe10e9a991d3, type: 2}
+  - {fileID: 1951297831917608, guid: 6d97212b3276a9a4db6c0a0c76d00fca, type: 2}
+  - {fileID: 1951297831917608, guid: 4487a7755f286344488f2431cd5df883, type: 2}
+  - {fileID: 1951297831917608, guid: f758c9ecfbc1d30448598454de4f8a37, type: 2}
+  - {fileID: 1951297831917608, guid: 09ab085523ef9064e94d88f3c3aa0e39, type: 2}
+  - {fileID: 1951297831917608, guid: 4e0c24027ed7c9847bd10f198954d2dd, type: 2}
 --- !u!212 &212930636760812278
 SpriteRenderer:
   m_ObjectHideFlags: 1

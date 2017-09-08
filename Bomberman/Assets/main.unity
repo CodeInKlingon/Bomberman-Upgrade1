@@ -3024,6 +3024,16 @@ Prefab:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 114003574637961534, guid: bbdd77c0056ae234382ef3bf12c71976,
+        type: 2}
+      propertyPath: remoteDetonate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114003574637961534, guid: bbdd77c0056ae234382ef3bf12c71976,
+        type: 2}
+      propertyPath: kick
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bbdd77c0056ae234382ef3bf12c71976, type: 2}
   m_IsPrefabParent: 0
